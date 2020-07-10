@@ -1,0 +1,28 @@
+.lis:hover{
+  cursor: pointer;
+}
+.cen{
+  top:200px;
+  
+  margin-left: 40%;
+  position: relative;
+  
+}
+.type{
+  padding-left: 20px;
+  width: 210px;
+  border: 1px solid #e9ecef;
+ 
+  padding-right: 50px;
+  outline: 0;
+  
+}
+.drp{
+  width:250px;
+  background-color: white;
+
+  box-shadow: 2px 2px 5px ;
+}
+body{
+  background-color: #99d8d0;
+}
