@@ -2,13 +2,14 @@ import React,{useState} from "react"
 import countryNames from "../dataset/CountryData"
 import {FaSearch} from "react-icons/fa"
 import 'bootstrap/dist/css/bootstrap.css'
-import {Dropdown,DropdownItem, InputGroup,Input, InputGroupAddon,InputGroupText} from "reactstrap"
+import {Dropdown,DropdownItem, InputGroup, InputGroupAddon,InputGroupText} from "reactstrap"
 const Inp = () =>{
+    // stores the input value from text feild
     const [inpvalue,setInpvalue] = useState("");
+    //returns an array based on searched value 
     const [clist,setClist] = useState([]);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-   const [colr,SetColr] = useState("white");
-     
+    
+     //change the autocomplete based on input (function)
     const valChang =(e)=>{
      setInpvalue(e.target.value)
      var String = e.target.value
@@ -25,37 +26,20 @@ const Inp = () =>{
      //console.log(list)
 
    }
-   const checkKey = (e)=>{
-       e = e || window.event;
-       if (e.keyCode == '38'){
-           console.log('Up')
-
-         
-       }
-       else if(e.keyCode =='40')
-       {
-           console.log('DOWN')
-           SetColr("red")
-       }
-   }
+   
   return(
      
       <div className="cen">
-         
+         {/* taking input from user  */}
          <InputGroup>
-         <InputGroupAddon addonType="prepend">
-          <InputGroupText><FaSearch/></InputGroupText>
-        </InputGroupAddon>
-         <input type="text" value={inpvalue} onChange={valChang} className="type" />
-         
+             <InputGroupAddon addonType="prepend">
+                  <InputGroupText><FaSearch/></InputGroupText>
+             </InputGroupAddon>
+                    <input type="text" value={inpvalue} onChange={valChang} className="type" />
          </InputGroup>
-        {/* <ListGroup>
-             {clist.map((coun,index)=>(
-               <ListGroupItem onClick={()=>setInpvalue(coun.name)} className="lis">{coun.name}</ListGroupItem>
-             ))}
-         </ListGroup> */}
+        {/* print searched value for autocomplete */}
          <Dropdown className="drp">
-         
+         {/* change the list name to your data coun.{name} so that it works(if you want to change the data set)  */}
          {clist.map((coun,index)=>(
                  <DropdownItem onClick={()=>setInpvalue(coun.name)}  key={index} >{coun.name}</DropdownItem>
              ))}
